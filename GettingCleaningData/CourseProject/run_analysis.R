@@ -1,22 +1,22 @@
 library(sqldf)
-local_path = "/users/scottwallace/DataScience/datasciencecoursera/GettingCleaningData/CourseProject"
+working_dir = getwd()
 data_dir = "/Data/UCI HAR Dataset"
 
 # Load Activity Labels
-dt_activity_labels <- read.table(paste(local_path, data_dir, "/activity_labels.txt", sep=""), header=FALSE)
+dt_activity_labels <- read.table(paste(working_dir, data_dir, "/activity_labels.txt", sep=""), header=FALSE)
 
 # Load Features
-dt_features <- read.table(paste(local_path, data_dir, "/features.txt", sep=""), header=FALSE)
+dt_features <- read.table(paste(working_dir, data_dir, "/features.txt", sep=""), header=FALSE)
   
 # Load Training Data Sets
-dt_X_train <- read.table(paste(local_path, data_dir, "/train/X_train.txt", sep=""), header=FALSE)
-dt_y_train <- read.table(paste(local_path, data_dir, "/train/y_train.txt", sep=""), header=FALSE)
-dt_subject_train <- read.table(paste(local_path, data_dir, "/train/subject_train.txt", sep=""), header=FALSE)
+dt_X_train <- read.table(paste(working_dir, data_dir, "/train/X_train.txt", sep=""), header=FALSE)
+dt_y_train <- read.table(paste(working_dir, data_dir, "/train/y_train.txt", sep=""), header=FALSE)
+dt_subject_train <- read.table(paste(working_dir, data_dir, "/train/subject_train.txt", sep=""), header=FALSE)
 
 # Load Test Data Sets
-dt_X_test <- read.table(paste(local_path, data_dir, "/test/X_test.txt", sep=""), header=FALSE)
-dt_y_test <- read.table(paste(local_path, data_dir, "/test/y_test.txt", sep=""), header=FALSE)
-dt_subject_test <- read.table(paste(local_path, data_dir, "/test/subject_test.txt", sep=""), header=FALSE)
+dt_X_test <- read.table(paste(working_dir, data_dir, "/test/X_test.txt", sep=""), header=FALSE)
+dt_y_test <- read.table(paste(working_dir, data_dir, "/test/y_test.txt", sep=""), header=FALSE)
+dt_subject_test <- read.table(paste(working_dir, data_dir, "/test/subject_test.txt", sep=""), header=FALSE)
 
 # Merge Train and Test Data Sets
 dt_X <- sqldf("SELECT * FROM dt_X_train UNION ALL SELECT * FROM dt_X_test")
@@ -54,4 +54,4 @@ rm(dt_activity_labels, dt_features, dt_subject, dt_X, dt_y)
 dt_merged_averaged <- ddply(dt_merged, .(subject_id, activity_name), numcolwise(mean))
 
 # Write output to text file
-write.table(dt_merged_averaged, paste(local_path, "/Data/CourseProjectTidy.txt", sep=""), sep=" ")
+write.table(dt_merged_averaged, paste(working_dir, "/Data/CourseProjectTidy.txt", sep=""), sep=" ")
