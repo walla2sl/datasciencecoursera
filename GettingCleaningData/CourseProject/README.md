@@ -1,4 +1,4 @@
-#Getting and Cleaning Data - CourseProject
+#Getting and Cleaning Data - Course Project
 
 ##Description
 Includes R code to analyze data for the Getting and Cleaning Data class on Coursera 
