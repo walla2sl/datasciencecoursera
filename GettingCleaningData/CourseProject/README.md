@@ -8,7 +8,7 @@ Includes R code to analyze data for the Getting and Cleaning Data class on Cours
 ####Description
 This R script performs analysis on data in the /Data directory and outputs a tidy data set to the /Data directory. More specifically this script does the following:
 
-- Merges training and test sets into one data set
+- Merges training and test sets into one data set, removing all but mean and standard deviation measurements
 - Applies descriptive labels to the data set
 - Creates a second, “tidy” data set with the average of each variable for each activity and each subject
 - Outputs the “tidy” data set to a text file named “CourseProjectTidy.txt” placed in the /Data directory
