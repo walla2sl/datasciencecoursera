@@ -33,7 +33,7 @@ dt_merged - the merged result of dt_subject, dt_X, and dt_y, with descriptive co
 dt_merged_averaged - the result of taking the average of all measures in dt_merged, broken down by subject_id and activity_name
 
 ##Data Files
-activity_labels.txt - list of activity ids with associated label (or name)
+activity_labels.txt - list of activity ids with associated activity label (or name)
 
 features.txt - list of all feature names
 
